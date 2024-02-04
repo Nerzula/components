@@ -49,6 +49,7 @@ body {
 	width: 68px;
 	height: 48px;
 	border: none;
+	display: none;
 	background-color: transparent;
 	transform: translate(-50%, -50%);
 	cursor: pointer;
@@ -72,4 +73,12 @@ body {
 .video-youtube:focus .video__button-shape {
 	fill: #ff0000;
 	fill-opacity: 1;
+}
+
+.video-youtube--enabled {
+	cursor: pointer;
+}
+
+.video--enabled .video__button {
+	display: block;
 }
