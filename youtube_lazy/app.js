@@ -1,56 +1,54 @@
 function youtubeVideos() {
-	const videos = document.querySelectorAll('[data-youtube-video]');
-	const deletedLength = 'https://youtu.be/'.length;
+	const videos = document.querySelectorAll('.video-youtube');
 
 	if (!videos.length) return;
 
 	videos.forEach(video => {
-		const videoHref = video.dataset.youtubeVideo;
-		const videoId = videoHref.substring(deletedLength, videoHref.length);
-		const videoUrl = generateUrl(videoId);
-		const vedioIframe = createIframe(videoId, videoUrl);
-		gereratePoster(video, videoId);
-		startVideo(video, vedioIframe);
+		setupVideo(video);
 	});
 
-	function gereratePoster(video, id) {
-		const img = video.querySelector('.video-image');
-		const youtubeImgSrc = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+	function setupVideo(video) {
+		const link = video.querySelector('.video-youtube__link');
+		const media = video.querySelector('.video-youtube__media');
+		const button = video.querySelector('.video-youtube__button');
+		const id = parseMediaURL(media);
 
-		if (img) {
-			img.setAttribute('src', youtubeImgSrc);
-		} else {
-			console.error('The img tag with the video-image class was not found');
-		}
+		video.addEventListener('click', () => {
+			let iframe = createIframe(id);
+
+			link.remove();
+			button.remove();
+			video.appendChild(iframe);
+		});
+
+		link.removeAttribute('href');
+		video.classList.add('video--enabled');
 	}
 
-	function generateUrl(id) {
-		let query = '?rel=0&showinfo=0&autoplay=1';
+	function parseMediaURL(media) {
+		let regexp =
+			/https:\/\/i\.ytimg\.com\/vi\/([a-zA-Z0-9_-]+)\/maxresdefault\.jpg/i;
+		let url = media.src;
+		let match = url.match(regexp);
 
-		return 'https://www.youtube.com/embed/' + id + query;
+		return match[1];
 	}
 
-	function createIframe(id, url) {
-		const iframe = document.createElement('iframe');
+	function createIframe(id) {
+		let iframe = document.createElement('iframe');
 
 		iframe.setAttribute('allowfullscreen', '');
 		iframe.setAttribute('allow', 'autoplay');
-		iframe.setAttribute('src', url);
-		iframe.classList.add('video-media');
+		iframe.setAttribute('src', generateURL(id));
+		iframe.classList.add('video-youtube__media');
 
 		return iframe;
 	}
 
-	function startVideo(video, iframe) {
-		const button = video.querySelector('button');
-		if (button) {
-			button.addEventListener('click', function (e) {
-				e.preventDefault();
-				video.querySelector('img').remove();
-				video.appendChild(iframe);
-				this.remove();
-			});
-		}
+	function generateURL(id) {
+		let query = '?rel=0&showinfo=0&autoplay=1';
+
+		return 'https://www.youtube.com/embed/' + id + query;
 	}
 }
 
