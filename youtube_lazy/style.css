@@ -14,15 +14,6 @@ body {
 	background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 }
 
-iframe,
-img {
-	width: 100%;
-	height: 100%;
-	display: block;
-	object-fit: cover;
-	border: none;
-}
-
 .section__video {
 	width: 500px;
 	height: 500px;
