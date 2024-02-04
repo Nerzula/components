@@ -79,6 +79,6 @@ body {
 	cursor: pointer;
 }
 
-.video--enabled .video__button {
+.video-youtube--enabled .video-youtube__button {
 	display: block;
 }
