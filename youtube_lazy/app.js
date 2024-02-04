@@ -22,7 +22,7 @@ function youtubeVideos() {
 		});
 
 		link.removeAttribute('href');
-		video.classList.add('video--enabled');
+		video.classList.add('video-youtube--enabled');
 	}
 
 	function parseMediaURL(media) {
