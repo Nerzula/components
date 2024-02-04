@@ -33,19 +33,35 @@ img {
 }
 
 .video-youtube__link {
-	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 }
 
+.video-youtube__media {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
 .video-youtube__button {
 	position: absolute;
-	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	left: 50%;
+	z-index: 1;
+	padding: 0;
+	width: 68px;
+	height: 48px;
 	border: none;
-	background: transparent;
+	background-color: transparent;
+	transform: translate(-50%, -50%);
 	cursor: pointer;
+	z-index: 2;
 }
 
 .video__button-shape {
