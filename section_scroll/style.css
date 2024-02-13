@@ -39,20 +39,20 @@
 	transition: width 0.3s ease 0s;
 }
 
-ul {
+.menu__list {
 	display: flex;
 	list-style-type: none;
+	column-gap: 25px;
 }
 
-a {
+.menu__list-link {
 	text-decoration: none;
 	color: #fff;
 	font-family: sans-serif;
 	display: inline-block;
-	margin-right: 25px;
 }
 
-a.active {
+.menu__list-link.active {
 	color: red;
 }
 
