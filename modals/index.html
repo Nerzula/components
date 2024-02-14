@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modals</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="content">
+		<button class="modal-btn" data-modal-path="fitrst" data-animation="fadeInUp" data-speed="700">Откырть окно 1</button>
+		<button class="modal-btn" data-modal-path="second">Откырть окно 2</button>
+	</div>
+	<div class="modal">
+		<div class="modal__wrapper">
+			<div class="modal__content" data-modal-target="fitrst">
+				<button class="modal__close">Закрыть</button>
+				<div class="modal__content__text">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, recusandae deleniti ab ratione atque sapiente temporibus nulla, aliquam error sed illo! Quod asperiores harum similique corrupti natus! Esse, neque id!
+					</p>
+				</div>
+			</div>
+			<div class="modal__content" data-modal-target="second">
+				<button class="modal__close">Закрыть</button>
+				<div class="modal__content__text">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, recusandae deleniti ab ratione atque sapiente temporibus nulla, aliquam error sed illo! Quod asperiores harum similique corrupti natus! Esse, neque id!
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
